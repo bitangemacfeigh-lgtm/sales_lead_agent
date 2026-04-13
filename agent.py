@@ -1,6 +1,11 @@
 import os
 from dotenv import load_dotenv
-from mistralai import Mistral
+
+try:
+    from mistralai import Mistral
+except ImportError:
+    # Fallback for specific SDK environments
+    from mistralai.client import Mistral
 
 load_dotenv()
 
